@@ -5,14 +5,14 @@ import { Provider } from 'react-redux'
 import logger from 'redux-logger'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import rootReducer from './reducers'
-
 import App from './App'
-
 import './styles.scss'
+
+const middleware = [logger]
 
 const store = createStore(
   rootReducer,
-  composeWithDevTools(applyMiddleware(logger))
+  composeWithDevTools(applyMiddleware(...middleware))
 )
 // console.log("store from src/index.js", store);
 
